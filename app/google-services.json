@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "897659451813",
+    "firebase_url": "https://korachat-fd566.firebaseio.com",
+    "project_id": "korachat-fd566",
+    "storage_bucket": "korachat-fd566.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897659451813:android:8fad1123c3c9b68c34104c",
+        "android_client_info": {
+          "package_name": "com.example.korachat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897659451813-h1u2qb55k9jmtt1882todgi6keopp411.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.korachat",
+            "certificate_hash": "3f3faffa73fc19fc2473d8ef6c795371bb0837bf"
+          }
+        },
+        {
+          "client_id": "897659451813-mjf3gi6fa58jnm7h52k77o4aadu9sinq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPQhK5CbdpcKCBM9wqQnw4c9ZPTFjiG44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897659451813-mjf3gi6fa58jnm7h52k77o4aadu9sinq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

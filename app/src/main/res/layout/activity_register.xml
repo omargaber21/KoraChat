@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Authentication.Register.RegisterActivity">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_passwordTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/register_button_background"
+        android:text="@string/register"
+        android:id="@+id/register_btnregister"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loginscreen_backg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".2"
+        android:background="@android:color/holo_red_dark" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/register_image"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/baseImageBackground"
+        android:src="@drawable/ic_person_grey_24dp" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_nameTIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/register_image"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/enter_your_name"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_phoneTIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_nameTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/enter_your_phone_number"
+        android:inputType="phone"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_favourite_team_TIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_phoneTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="Enter Your Favourite Team"
+        android:inputType="textAutoComplete"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_emailTIET"
+        android:layout_width="match_parent"
+        android:layout_below="@id/register_favourite_team_TIET"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/enter_your_email"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_passwordTIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_emailTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:indeterminateTintMode="src_atop"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@android:color/white"/>
+
+</RelativeLayout>

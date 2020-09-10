@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Authentication.Login.LoginActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/login_button_background"
+        android:text="@string/login"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:id="@+id/btnLogin"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/register_button_background"
+        android:text="@string/register"
+        android:id="@+id/btnRegister"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loginscreen_backg" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="serif-monospace"
+        android:gravity="center"
+        android:text="Kora Chat"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emailTIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/enter_your_email"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordTIET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailTIET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/login_user_pass_background"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:indeterminateTintMode="src_atop"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@android:color/white"/>
+</RelativeLayout>
