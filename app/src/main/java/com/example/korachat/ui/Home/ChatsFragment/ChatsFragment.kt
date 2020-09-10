@@ -16,6 +16,9 @@ import com.example.korachat.models.Users
 import com.example.korachat.ui.ChattingRoom.ChatRoom
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_chats.*
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class ChatsFragment : Fragment() {
@@ -66,4 +69,5 @@ class ChatsFragment : Fragment() {
 
 
     }
+
 }

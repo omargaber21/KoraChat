@@ -190,6 +190,7 @@ class Repository {
 
     }
 
+
     fun getUserUID(chatUID: String) {
         val listener = object : ValueEventListener {
             var userUID: String? = null
@@ -234,7 +235,7 @@ class Repository {
                 if (it.isSuccessful) {
                     reference.child("Chats").child(chatUID).child("lastMsg").setValue(messageUID)
                     reference.child("Chats").child(chatUID).child("TIMESTAMP").setValue(ServerValue.TIMESTAMP)
-                    getLastMsg(chatUID,messageUID)
+
                     Log.w("myXTag", "Success")
                 } else {
                     throw it.exception!!
@@ -330,7 +331,7 @@ class Repository {
 
     }
     val imageUrlMLD=MutableLiveData<String>()
-    fun uploadImage(imageURI: Uri) {
+    fun uploadImage(imageURI: Uri,chatUID: String,chatMessages: ChatMessages) {
         val key = reference.push().key
         val ref = storageReference.child("profileImages").child(key + ".jpg")
         val uploadTask = ref.putFile(imageURI)
@@ -342,11 +343,16 @@ class Repository {
         }.addOnCompleteListener {
             if (it.isSuccessful) {
                 val imageUrl = it.result.toString()
+                chatMessages.message=""
+                chatMessages.imageUrl=imageUrl
+                sendMessage(chatUID,chatMessages)
                 imageUrlMLD.postValue(imageUrl)
+                Log.w("Tango", "asfasfs$imageUrl")
 
             }
         }
     }
+    val lastMsgMLD=MutableLiveData<ChatMessages>()
     fun getLastMsg(chatUID: String,messageUID:String){
         val listener=object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -354,8 +360,12 @@ class Repository {
 
             override fun onDataChange(p0: DataSnapshot) {
             val message=p0.getValue(ChatMessages::class.java)
+                if(message!=null){
+                    lastMsgMLD.postValue(message)
+                }
             }
         }
         reference.child("chatMessages").child(chatUID).child(messageUID).addListenerForSingleValueEvent(listener)
     }
+
 }

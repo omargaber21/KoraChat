@@ -1,6 +1,7 @@
 package com.example.korachat.ui.Home.ChatsFragment
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.korachat.R
+import com.example.korachat.models.UserChats
 import com.example.korachat.models.Users
 import kotlinx.android.synthetic.main.chats_rowitem.view.*
 
@@ -31,7 +33,7 @@ class UsersChatAdapter(var mContext: Context,var fragment: ChatsFragment) :
         val user=usersList!![position]["user"] as Users
         val chatUID=usersList!![position]["chatUID"] as String
         holder.user_name.text=user.username
-        holder.last_msg.text=chatUID
+        holder.last_msg.text=user.favourite_team
         holder.user_circle_image.circleBackgroundColor=getColor(mContext,R.color.baseImageBackground)
         Glide.with(mContext)
             .load(user.imageURL)
@@ -42,11 +44,9 @@ class UsersChatAdapter(var mContext: Context,var fragment: ChatsFragment) :
             goToChat(position)
         }
     }
-
     private fun goToChat(position: Int) {
         fragment.goToChatRoom(position)
     }
-
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val user_circle_image = view.circleImageView
         val user_name = view.username

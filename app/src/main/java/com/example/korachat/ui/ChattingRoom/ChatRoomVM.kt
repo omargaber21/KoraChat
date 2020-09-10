@@ -10,7 +10,7 @@ import com.example.korachat.ui.ChattingRoom.ChatRoom
 
 class ChatRoomVM :ViewModel() {
     val repo=Repository()
-    fun sendMessage(chatUID:String,chatMessages:ChatMessages){
+    fun sendMessage(chatUID:String,chatMessages:ChatMessages ){
         repo.sendMessage(chatUID,chatMessages)
     }
     val messagesMLD=MutableLiveData<ArrayList<ChatMessages>>()
@@ -22,8 +22,8 @@ class ChatRoomVM :ViewModel() {
 
     }
     val imageUrlMLD=MutableLiveData<String>()
-    fun uploadImage(imageUri: Uri,context:ChatRoom){
-        repo.uploadImage(imageUri)
+    fun uploadImage(imageUri: Uri,context:ChatRoom,chatUID: String,chatMessages: ChatMessages){
+        repo.uploadImage(imageUri,chatUID, chatMessages)
         repo.imageUrlMLD.observe(context, Observer {
             imageUrlMLD.postValue(it)
         })

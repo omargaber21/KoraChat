@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.korachat.R
+import com.example.korachat.data.Repository
 import com.example.korachat.models.ChatMessages
 import com.example.korachat.models.Users
 import kotlinx.android.synthetic.main.chat_room.*
@@ -30,7 +32,7 @@ class ChatRoom : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chat_room)
-        val intent=intent.extras
+        val intent=intent.extras!!
         user=intent["user"] as Users
         chatUID=intent["chatUID"] as String
         currentUser=intent["currentUser"] as String
@@ -60,6 +62,7 @@ class ChatRoom : AppCompatActivity() {
             val message=edit_text.text.toString()
             chatMessages.message=message
             if(message!=""){
+                chatMessages.imageUrl=""
                 chatRoomVM?.sendMessage(chatUID,chatMessages)
                 edit_text.text.clear()
             }
@@ -118,10 +121,7 @@ class ChatRoom : AppCompatActivity() {
         }
     }
     fun sendImage(){
-        chatRoomVM?.uploadImage(imageUri,this)
-        chatRoomVM?.imageUrlMLD?.observe(this, androidx.lifecycle.Observer {
-            chatMessages.imageUrl=it
-            chatRoomVM?.sendMessage(chatUID,chatMessages)
-        })
+        chatRoomVM?.uploadImage(imageUri,this,chatUID,chatMessages)
+
     }
 }

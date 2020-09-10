@@ -16,4 +16,5 @@ class ChatsFragmentVM :ViewModel() {
             mapMLD.postValue(it)
         })
     }
+
 }
