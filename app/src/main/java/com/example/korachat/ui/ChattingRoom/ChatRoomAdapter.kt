@@ -57,10 +57,6 @@ class ChatRoomAdapter(
     class ReceivedMessages(itemview: View) : RecyclerView.ViewHolder(itemview) {
         fun bind(chatMessage: ChatMessages) {
             if (chatMessage.message.isNullOrEmpty()) {
-              //  itemView.message.visibility = View.GONE
-              //  itemView.date.visibility = View.GONE
-               // itemView.receive_image.visibility = View.VISIBLE
-               // itemView.received_image_date.visibility = View.VISIBLE
                 itemView.ln_received_image.visibility=View.VISIBLE
                 itemView.ln_received_message.visibility=View.GONE
                 itemView.received_image_date.text=chatMessage.messageDate
@@ -71,12 +67,8 @@ class ChatRoomAdapter(
                     .into(itemView.receive_image)
             }
             if (chatMessage.imageUrl.isNullOrEmpty()) {
-              //  itemView.message.visibility = View.VISIBLE
-              //  itemView.date.visibility = View.VISIBLE
                 itemView.message.text = chatMessage.message
                 itemView.date.text = chatMessage.messageDate
-               // itemView.receive_image.visibility = View.GONE
-              //  itemView.received_image_date.visibility = View.GONE
                 itemView.ln_received_image.visibility=View.GONE
                 itemView.ln_received_message.visibility=View.VISIBLE
 
@@ -87,13 +79,9 @@ class ChatRoomAdapter(
     class SentMessages(itemview: View) : RecyclerView.ViewHolder(itemview) {
         fun bind(chatMessage: ChatMessages) {
             if (chatMessage.message.isNullOrEmpty()) {
-              //  itemView.message.visibility = View.GONE
-               // itemView.date.visibility = View.GONE
                 itemView.ln_sent_message.visibility=View.GONE
                 itemView.ln_sent_image.visibility=View.VISIBLE
-              //  itemView.send_image.visibility = View.VISIBLE
-                //itemView.sent_image_date.visibility = View.VISIBLE
-                //itemView.sent_image_date.text=chatMessage.messageDate
+                itemView.sent_image_date.text=chatMessage.messageDate
                 Glide.with(itemView.context)
                     .load(chatMessage.imageUrl)
                     .fitCenter()
@@ -101,12 +89,8 @@ class ChatRoomAdapter(
                     .into(itemView.send_image)
             }
             if (chatMessage.imageUrl.isNullOrEmpty()) {
-               // itemView.message.visibility = View.VISIBLE
-               // itemView.date.visibility = View.VISIBLE
                 itemView.message.text = chatMessage.message
                 itemView.date.text = chatMessage.messageDate
-               // itemView.send_image.visibility = View.GONE
-               // itemView.sent_image_date.visibility = View.GONE
                 itemView.ln_sent_image.visibility=View.GONE
                 itemView.ln_sent_message.visibility=View.VISIBLE
             }

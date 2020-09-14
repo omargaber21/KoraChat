@@ -13,7 +13,7 @@ import com.example.korachat.R
 import com.example.korachat.ui.Authentication.Login.LoginActivity
 import com.example.korachat.ui.Home.ChatsFragment.ChatsFragment
 import com.example.korachat.ui.Home.SearchFragment.SearchFragment
-import com.example.korachat.ui.Home.SettingsFragment
+import com.example.korachat.ui.Home.ProfileFragment.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -27,7 +27,7 @@ val mAuth=FirebaseAuth.getInstance()
         val viewPagerAdapter=ViewPagerAdapter(supportFragmentManager)
         viewPagerAdapter.addFragment(ChatsFragment(),"Chats")
         viewPagerAdapter.addFragment(SearchFragment(),"Search")
-        viewPagerAdapter.addFragment(SettingsFragment(),"Settings")
+        viewPagerAdapter.addFragment(ProfileFragment(),"Profile")
         view_pager.adapter=viewPagerAdapter
         tab_layout.setupWithViewPager(view_pager)
         val homeActivityVM=ViewModelProvider(this).get(HomeActivityVM::class.java)
